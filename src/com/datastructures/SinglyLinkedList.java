@@ -8,6 +8,7 @@ public class SinglyLinkedList {
     public SinglyLinkedList() {
         linkedList = new NodeHead();
     }
+
     public void insertAtFront(int value) {
 
         SinglyLinkedNode newNode = new SinglyLinkedNode(value);
@@ -31,20 +32,58 @@ public class SinglyLinkedList {
     }
 
     public void addAtIndex(int index, int value) {
+        int count = 0;
+        SinglyLinkedNode node = linkedList.head;
+        SinglyLinkedNode prev = null;
+        SinglyLinkedNode newNode = new SinglyLinkedNode(value);
 
+        if(node == null && index == 0) {
+            insertAtFront(value);
+            return;
+        }
+
+        if(index == 0) {
+            insertAtFront(value);
+            return;
+        }
+
+        while(node != null && index != count) {
+            prev = node;
+            node = node.next;
+            count++;
+        }
+
+        if(node == null && prev == null){
+            prev = newNode;
+            return;
+        }
+
+        prev.next = newNode;
+        prev.next.next = node;
     }
-    //may need to update this not sure its 100*
+
+
     public void deleteAtIndex(int index) {
 
         int count = 0;
         SinglyLinkedNode node = linkedList.head;
+        SinglyLinkedNode prev = null;
+
+        if (node != null && index == 0) {
+            linkedList.head = node.next;
+            return;
+        }
+
+        while(node != null && count != index) {
+            prev = node;
+            node = node.next;
+            count++;
+        }
+
         if(node == null)
             return;
-        while(node != null) {
-            if(count == index)
-                node.value = node.next.value;
-             node = node.next;
-        }
+
+        prev.next = node.next;
 
     }
 
