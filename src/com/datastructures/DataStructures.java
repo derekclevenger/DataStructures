@@ -5,8 +5,7 @@ import java.util.LinkedList;
 public class DataStructures {
 
     public static void main(String[] args) {
-
-        LinkedList<Integer> thisLIst = new LinkedList<Integer>();
+//
         SinglyLinkedList list = new SinglyLinkedList();
         list.insertAtBack(5);
 //        System.out.println(list.length());
@@ -33,10 +32,16 @@ public class DataStructures {
 
         list.addAtIndex(2,99);
 
-//        System.out.println(list.getAtIndex(0));
-//        System.out.println(list.getAtIndex(1));
-//        System.out.println(list.getAtIndex(2));
-//        System.out.println(list.getAtIndex(3));
-//        System.out.println(list.getAtIndex(4));
+
+        BinaryTree tree = new BinaryTree();
+        tree.Add(10);
+        tree.Add(2);
+        tree.Add(22);
+        tree.Add(2);
+
+        tree.preOrderTraversal();
+        tree.inOrderTraversal();
+        tree.postOrderTraversal();
+
     }
 }
