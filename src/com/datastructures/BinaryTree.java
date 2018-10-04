@@ -69,4 +69,8 @@ public class BinaryTree {
             System.out.println(node.value + " " + node.count);
         }
     }
+
+    public void levelOrderTraverse() {
+
+    }
 }
